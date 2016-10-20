@@ -95,18 +95,25 @@ public class ${classname} {
 					+ "   </ListarDocentes>" + " </soapenv:Body>"
 					+ "</soapenv:Envelope>");
 					
-					
+		int PRETTY_PRINT_INDENT_FACTOR = 4;
+		String result = "{\"content\": %s, \"page\":{\"size\":%s,\"totalElements\":%s,\"totalPages\":1,\"number\":%s},\"links\":[{\"rel\": \"self\", \"href\": \"/api/rest/LyceumListarDocentes\"}]  }";
+    			
 		json = (JSONObject)json.get("soap:Envelope");
 		json = (JSONObject)json.get("soap:Body");
 		json = (JSONObject)json.get("ns2:ListarDocentesResponse");
 		json = (JSONObject)json.get("listaInfoPrincipaisDocentesDto");
-		JSONArray jsonArray = (JSONArray)json.getJSONArray("listaInfoPrincipaisDocentesDto");
+		JSONArray jsonArray = new JSONArray();
+		if (json.has("listaInfoPrincipaisDocentesDto")) {
+		  Object obj = json.get("listaInfoPrincipaisDocentesDto");
+		  if (obj instanceof JSONObject) 
+		    result = String.format(result, "["+((JSONObject)obj).toString(PRETTY_PRINT_INDENT_FACTOR)+"]", size, jsonArray.length(), page );	
+      else if (obj instanceof JSONArray)
+		    result = String.format(result, ((JSONArray)obj).toString(PRETTY_PRINT_INDENT_FACTOR), size, jsonArray.length(), page );
+		}
+		else
+		  result = String.format(result, jsonArray.toString(PRETTY_PRINT_INDENT_FACTOR), size, jsonArray.length(), page );
 		
-		int PRETTY_PRINT_INDENT_FACTOR = 4;
-		String result = "{\"content\": %s, \"page\":{\"size\":%s,\"totalElements\":%s,\"totalPages\":1,\"number\":%s},\"links\":[{\"rel\": \"self\", \"href\": \"/api/rest/LyceumListarDocentes\"}]  }";
-    result = String.format(result, jsonArray.toString(PRETTY_PRINT_INDENT_FACTOR), size, jsonArray.length(), page );	
-		
-    return  result;    
+    return  result; 
   }
 
 	

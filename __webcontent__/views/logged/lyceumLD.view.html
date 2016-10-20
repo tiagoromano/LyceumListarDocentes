@@ -1,81 +1,99 @@
 <div class="container-fluid"> 
   <h3>Listagem docentes</h3> 
-  <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-763276"> 
-    <datasource name="Lyceum" entity="/api/rest/LyceumListarDocentes" keys="id" rows-per-page="100" class=""></datasource> 
+  <div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-744457"><div class="form-group">
+	<label for="exampleInputEmail1">Código</label>
+	<input type="text" ng-model="filtroCodigoDocente" class="form-control" id="textinput-id" placeholder="Placeholder text">
+</div></div><div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-237445"><div class="form-group">
+	<label for="exampleInputEmail1">CPF</label>
+	<input type="text" ng-model="filtroCpfPessoa" class="form-control" id="textinput-id" placeholder="Placeholder text">
+</div></div><div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-763276"> 
+    <datasource name="Lyceum" entity="/api/rest/LyceumListarDocentes" filter="?codigoDocente={{filtroCodigoDocente}}&amp;cpfPessoa={{filtroCpfPessoa}}" keys="id" rows-per-page="100"></datasource> 
   </div> 
   
   <div class="row"> 
     <div class="col-xl-12 component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-grid" id="crn-grid-852138"> 
-      <div crn-datasource="Lyceum" class="table-responsive panel panel-primary" > 
+      <div crn-datasource="Lyceum" class="table-responsive panel panel-primary"> 
         <table class="table table-bordered table-hover"> 
           <thead> 
             <tr class="table-header"> 
               <th class="active"> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true">
                    Código
                 </div> </th> 
-              <th class=""> 
-                <div data-container="true" class="" draggable="true">
+              <th> 
+                <div data-container="true">
                    Telefone
                 </div> </th> 
               <th> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true">
                    Endereço
                 </div> </th> 
               <th> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true">
                    Numero
                 </div> </th> 
               <th> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true">
                    Bairro
                 </div> </th>
               <th> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true">
                    Estado civil
                 </div> </th>
               <th> 
-                <div data-container="true" class="" draggable="true">
-                   Email
-                </div> </th>
+                <div data-container="true">CPF</div> </th>
             </tr> 
           </thead> 
           <tbody> 
             <tr class="table-content" ng-repeat="rowData in datasource.data"> 
               <td class="active"> 
-                <div data-container="true" class="" draggable="true">
+                <div data-container="true" content="
+                   {{rowData.codigo}} 
+                ">
                    {{rowData.codigo}} 
                 </div> </td> 
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.telefone}} 
+                ">
                    {{rowData.telefone}} 
                 </div> </td> 
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.endereco}} 
+                ">
                    {{rowData.endereco}} 
                 </div> </td>
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.numero}} 
+                ">
                    {{rowData.numero}} 
                 </div> </td>
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.bairro}} 
+                ">
                    {{rowData.bairro}} 
                 </div> </td>
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.estadoCivil}} 
+                ">
                    {{rowData.estadoCivil}} 
                 </div> </td>
-              <td class=""> 
-                <div data-container="true" class="" draggable="true">
-                   {{rowData.emailExterno}} 
+              <td> 
+                <div data-container="true" content="
+                   {{rowData.cpf}} 
+                ">
+                   {{rowData.cpf}} 
                 </div> </td>
             </tr> 
           </tbody> 
         </table> 
       </div> 
       <div class="center-block"> 
-        <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{'Users.view.Load More' | translate}}... </button> 
+        <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()" content="{{'Users.view.Load More' | translate}}... ">{{'Users.view.Load More' | translate}}... </button> 
       </div> 
     </div> 
     <div class="col-xl-12 component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-form" id="crn-form-319115"> 
