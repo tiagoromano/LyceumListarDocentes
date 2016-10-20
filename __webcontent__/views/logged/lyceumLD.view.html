@@ -2,10 +2,10 @@
   <h3>Listagem docentes</h3> 
   <div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-744457"><div class="form-group">
 	<label for="exampleInputEmail1">Código</label>
-	<input type="text" ng-model="filtroCodigoDocente" class="form-control" id="textinput-id" placeholder="Placeholder text">
+	<input type="text" ng-model="filtroCodigoDocente" class="form-control" id="textinput-id" placeholder="Código">
 </div></div><div class="component-holder ng-binding ng-scope" data-component="crn-textinput" id="crn-textinput-237445"><div class="form-group">
 	<label for="exampleInputEmail1">CPF</label>
-	<input type="text" ng-model="filtroCpfPessoa" class="form-control" id="textinput-id" placeholder="Placeholder text">
+	<input type="text" ng-model="filtroCpfPessoa" class="form-control" id="textinput-id" placeholder="CPF">
 </div></div><div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-763276"> 
     <datasource name="Lyceum" entity="/api/rest/LyceumListarDocentes" filter="?codigoDocente={{filtroCodigoDocente}}&amp;cpfPessoa={{filtroCpfPessoa}}" keys="id" rows-per-page="100"></datasource> 
   </div> 
