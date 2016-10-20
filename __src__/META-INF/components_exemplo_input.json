@@ -1,0 +1,18 @@
+{
+	"name": "cronos-components",
+	"version": "1.0.0",
+	"components": [
+		{
+			"name": "crn-exemploinput",
+			"text": "Exemplo Input",
+			"class": "cpn cpn-textinput",
+			"templateURL": "${webcontent}/components/templates/exemplo-input.template.html",
+			"properties": {
+				"onchange": {
+					"removable": true,
+					"type": "event"
+				}
+			}
+		}
+	]
+}
