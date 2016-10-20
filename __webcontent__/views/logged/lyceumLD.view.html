@@ -1,0 +1,85 @@
+<div class="container-fluid"> 
+  <h3>Listagem docentes</h3> 
+  <div class="component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-datasource" id="crn-datasource-763276"> 
+    <datasource name="Lyceum" entity="/api/rest/LyceumListarDocentes" keys="id" rows-per-page="100" class=""></datasource> 
+  </div> 
+  
+  <div class="row"> 
+    <div class="col-xl-12 component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-grid" id="crn-grid-852138"> 
+      <div crn-datasource="Lyceum" class="table-responsive panel panel-primary" > 
+        <table class="table table-bordered table-hover"> 
+          <thead> 
+            <tr class="table-header"> 
+              <th class="active"> 
+                <div data-container="true" class="" draggable="true">
+                   Código
+                </div> </th> 
+              <th class=""> 
+                <div data-container="true" class="" draggable="true">
+                   Telefone
+                </div> </th> 
+              <th> 
+                <div data-container="true" class="" draggable="true">
+                   Endereço
+                </div> </th> 
+              <th> 
+                <div data-container="true" class="" draggable="true">
+                   Numero
+                </div> </th> 
+              <th> 
+                <div data-container="true" class="" draggable="true">
+                   Bairro
+                </div> </th>
+              <th> 
+                <div data-container="true" class="" draggable="true">
+                   Estado civil
+                </div> </th>
+              <th> 
+                <div data-container="true" class="" draggable="true">
+                   Email
+                </div> </th>
+            </tr> 
+          </thead> 
+          <tbody> 
+            <tr class="table-content" ng-repeat="rowData in datasource.data"> 
+              <td class="active"> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.codigo}} 
+                </div> </td> 
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.telefone}} 
+                </div> </td> 
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.endereco}} 
+                </div> </td>
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.numero}} 
+                </div> </td>
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.bairro}} 
+                </div> </td>
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.estadoCivil}} 
+                </div> </td>
+              <td class=""> 
+                <div data-container="true" class="" draggable="true">
+                   {{rowData.emailExterno}} 
+                </div> </td>
+            </tr> 
+          </tbody> 
+        </table> 
+      </div> 
+      <div class="center-block"> 
+        <button class="btn btn-default btn-block btn-clicked" ng-show="datasource.hasNextPage()" ng-click="datasource.nextPage()">{{'Users.view.Load More' | translate}}... </button> 
+      </div> 
+    </div> 
+    <div class="col-xl-12 component-holder ng-binding ng-scope ui-draggable ui-draggable-handle" data-component="crn-form" id="crn-form-319115"> 
+      
+    </div> 
+  </div> 
+</div>

@@ -2,6 +2,7 @@
 package ${namespace};
 </#if>
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,10 +100,12 @@ public class ${classname} {
 		json = (JSONObject)json.get("soap:Body");
 		json = (JSONObject)json.get("ns2:ListarDocentesResponse");
 		json = (JSONObject)json.get("listaInfoPrincipaisDocentesDto");
-		
+		JSONArray jsonArray = (JSONArray)json.getJSONArray("listaInfoPrincipaisDocentesDto");
 		
 		int PRETTY_PRINT_INDENT_FACTOR = 4;
-		String result = json.toString(PRETTY_PRINT_INDENT_FACTOR);
+		String result = "{\"content\": %s, \"page\":{\"size\":%s,\"totalElements\":%s,\"totalPages\":1,\"number\":%s},\"links\":[{\"rel\": \"self\", \"href\": \"/api/rest/LyceumListarDocentes\"}]  }";
+    result = String.format(result, jsonArray.toString(PRETTY_PRINT_INDENT_FACTOR), size, jsonArray.length(), page );	
+		
     return  result;    
   }
 
