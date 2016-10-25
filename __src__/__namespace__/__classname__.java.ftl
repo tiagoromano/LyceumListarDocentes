@@ -85,7 +85,7 @@ public class ${classname} {
     if (page!=null && !page.isEmpty() && size!=null && !size.isEmpty()) 
       filter += "<paginacaoDto><inicio>"+page+"</inicio><total>"+size+"</total></paginacaoDto>";
       
-    JSONObject json = LyceumClient.getResult("http://uc.lyceum.com.br/WebServices/ServicoDocente","http://servicos/ServicoDocente/ListarDocentes",
+    JSONObject json = LyceumClient.getResult("https://demo.lyceum.com.br/webservices/ServicoDocente","http://servicos/ServicoDocente/ListarDocentes",
           "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" >"
 					+ " <soapenv:Header/>" + " <soapenv:Body>"
 					+ "   <ListarDocentes xmlns=\"http://servicos.webservices.lyceum.techne/\">"
